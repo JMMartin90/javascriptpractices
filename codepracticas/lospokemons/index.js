@@ -4,6 +4,7 @@ const getPokemons = async (limit) => {
   const pokemons = await pokemonsRequest.json()
   return pokemons.results
 }
+
 //getPokemons()
 
 const getOnePokemon = async (pokemonName) => {
@@ -21,7 +22,7 @@ const listPokemons = async (limit) => {
       return pokemon
     })
   const pokeList = await Promise.all(pokePromise)
-  //console.log(pokeList)
+  console.log(pokeList)
   return pokeList
 }
 
@@ -33,7 +34,7 @@ const filterPokemonByType = (pokeList, type, type2) => {
     (type2 ? p.types.find(pt => pt.type.name === type2) : // ? es igual a "if" y : es igual a "else"
     true)
   })
-  return pokemonByType
+return pokemonByType
 }
 
 const listPokemonByType = async (limit, type, type2) => {
@@ -43,7 +44,7 @@ return filterPokemonByType(pokeList, type, type2)
 
 (
   async () => {
-    const grassPokemons = await listPokemonByType(300, 'grass', 'poison')
+    const grassPokemons = await listPokemonByType(1000, 'grass', 'poison')
     console.log(grassPokemons)
   }
 )()
