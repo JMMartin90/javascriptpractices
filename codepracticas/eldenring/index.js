@@ -1,23 +1,44 @@
-const cogerArmas = async (limit) => {
-    const traerArmas = await fetch (`https://eldenring.fanapis.com/api/weapons?limit=100=${limit}`)
-    const armas = await traerArmas.json()
-    return armas.results
-}
+const cogerArmas = async (limit, page) => {
+  const traerArmas = await fetch(
+    `https://eldenring.fanapis.com/api/weapons?limit=${limit}&page=${page}`
+  );
+  const armas = await traerArmas.json();
+  return armas.data;
+};
 
-const unArma = async (nombreArma) => {
-    const listaArma = await fetch (`https://eldenring.fanapis.com/api/weapons/${nombreArma}`)
-    const arma = await listaArma.json()
-    return arma
-}
-const listaArmas = async (limit) => {
-    const armas = await cogerArmas(limit)
-    const armasPromise = armas.map(async (p) => {
-      const arma = await unArma(p.name)
-      return arma
-      
-    })
-  const armaLista = await Promise.all(armasPromise)
-  console.log(armaLista)
-  return armaLista
-}
-listaArmas()
+const filtroPorAtributo = (armas, atributo) => {
+  if (!armas.length) {
+    return [];
+  }
+  if (!atributo.length) {
+    return armas;
+  }
+  const scaling = ["S", "A", "B", "C"]
+  return armas.filter((a) => {
+    return a.scalesWith.find( s => s.name === atributo && scaling.includes(s.scaling))
+  });
+};
+
+(async (limit, page) => {
+  const armas = await cogerArmas(limit, page);
+  const armasPorDestreza = filtroPorAtributo(armas,"Dex")
+  console.log(armasPorDestreza);
+})(100, 0);
+
+(async (limit, page) => {
+  const armas = await cogerArmas(limit, page);
+  const armasPorDestreza = filtroPorAtributo(armas,"Dex")
+  console.log(armasPorDestreza);
+})(100, 1);
+
+(async (limit, page) => {
+  const armas = await cogerArmas(limit, page);
+  const armasPorDestreza = filtroPorAtributo(armas,"Dex")
+  console.log(armasPorDestreza);
+})(100, 2);
+
+(async (limit, page) => {
+  const armas = await cogerArmas(limit, page);
+  const armasPorDestreza = filtroPorAtributo(armas,"Dex")
+  console.log(armasPorDestreza);
+})(100, 3);
