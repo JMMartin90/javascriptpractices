@@ -1,0 +1,16 @@
+{
+  "name": "lospokemons",
+  "version": "1.0.0",
+  "description": "los pokemon",
+  "main": "nodeapp.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node nodeapp.js"
+  },
+  "author": "judas",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.2.3"
+  }
+}
