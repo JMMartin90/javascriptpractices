@@ -49,6 +49,10 @@ const cartaArray = [
   },
 ];
 
+/*sort es un metodo de arrays para ordenar.
+math es una libreria para operaciones matematicas, 
+y random es un metodo de math para obtener un numero aleatorio entre 0 y 1 */
+
 cartaArray.sort(() => 0.5 - Math.random());
 
 const grid = document.querySelector("#grid");
@@ -109,4 +113,4 @@ function descubreCarta() {
   }
 }
 
-createBoard()
+createBoard();
