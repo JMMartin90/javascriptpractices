@@ -5,11 +5,11 @@ const possibleChoicee = document.querySelectorAll("button");
 let userChoice;
 
 possibleChoicee.forEach((possibleChoice) =>
-  possibleChoice.addEventListener('click', (e) => {
+  possibleChoice.addEventListener("click", (e) => {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
     generateComputerChoice();
-    getResult()
+    getResult();
   })
 );
 
@@ -28,33 +28,26 @@ function generateComputerChoice() {
   computerChoiceDisplay.innerHTML = computerChoice;
 }
 function getResult() {
-    if (computerChoice === userChoice) {
-        result = 'Empatados!'
-
-    }
-    if (computerChoice === 'piedra' && userChoice === "papel") {
-        result = 'Ganaste!'
-
-    }
-    if (computerChoice === 'piedra' && userChoice === "tijeras") {
-        result = 'Perdiste!'
-
-    }
-    if (computerChoice === 'papel' && userChoice === "tijeras") {
-        result = 'Ganaste!'
-
-    }
-    if (computerChoice === 'papel' && userChoice === "piedra") {
-        result = 'Perdiste!'
-
-    }
-    if (computerChoice === 'tijeras' && userChoice === "papel") {
-        result = 'Perdiste!'
-
-    }
-    if (computerChoice === 'tijeras' && userChoice === "piedra") {
-        result = 'Ganaste!'
-
-    }
-    resultDisplay.innerHTML = result
+  if (computerChoice === userChoice) {
+    result = "Empatados!";
+  }
+  if (computerChoice === "piedra" && userChoice === "papel") {
+    result = "Ganaste!";
+  }
+  if (computerChoice === "piedra" && userChoice === "tijeras") {
+    result = "Perdiste!";
+  }
+  if (computerChoice === "papel" && userChoice === "tijeras") {
+    result = "Ganaste!";
+  }
+  if (computerChoice === "papel" && userChoice === "piedra") {
+    result = "Perdiste!";
+  }
+  if (computerChoice === "tijeras" && userChoice === "papel") {
+    result = "Perdiste!";
+  }
+  if (computerChoice === "tijeras" && userChoice === "piedra") {
+    result = "Ganaste!";
+  }
+  resultDisplay.innerHTML = result;
 }

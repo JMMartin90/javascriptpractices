@@ -75,14 +75,14 @@ drawBall();
 function moveUser(e) {
   switch (e.key) {
     case "ArrowLeft":
-      case "a":
+    case "a":
       if (currentPosition[0] > 0) {
         currentPosition[0] -= 10;
         drawUser();
       }
       break;
     case "ArrowRight":
-      case "d":
+    case "d":
       if (currentPosition[0] < boardWidth - blockWidth) {
         currentPosition[0] += 10;
         drawUser();

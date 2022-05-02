@@ -6,7 +6,7 @@ const score = document.querySelector("#score");
 let result = 0;
 let hitPosition;
 let currentTime = 60;
-let timerId = null
+let timerId = null;
 
 function randomSquare() {
   squares.forEach((square) => {
@@ -19,7 +19,7 @@ function randomSquare() {
   hitPosition = randomSquare.id;
 }
 
-squares.forEach(square => {
+squares.forEach((square) => {
   square.addEventListener("mousedown", () => {
     if (square.id == hitPosition) {
       result++;
@@ -41,7 +41,7 @@ function countDown() {
 
   if (currentTime == 0) {
     clearInterval(countDownTimerId);
-    clearInterval(timerId)
+    clearInterval(timerId);
     alert("YOU DIE! tu puntuacion final es" + result);
   }
 }
